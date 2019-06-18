@@ -1,0 +1,7 @@
+#ifndef __CONFIG_HH
+#define __CONFIG_HH
+
+#cmakedefine01 LIBFTDI1
+#cmakedefine PACKAGE_VERSION "@PACKAGE_VERSION@"
+
+#endif
