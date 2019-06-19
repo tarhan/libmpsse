@@ -12,10 +12,10 @@ target_include_directories(mpsse PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 
 if(TARGET Ftdi1::Ftdi1)
     message(STATUS "Using Ftdi1 library")
-    set(LIBFTDI1 ON)
+    set(HAVE_LIBFTDI1 ON)
     target_compile_definitions(mpsse
         PRIVATE
-            LIBFTDI1=1
+            HAVE_LIBFTDI1=1
     )
 endif()
 target_link_libraries(mpsse PUBLIC Ftdi1::Ftdi1)
