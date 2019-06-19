@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 project(libmpsse
     VERSION 1.3
+    LANGUAGES C
 )
 
 add_library(mpsse "")
@@ -14,20 +15,19 @@ if(TARGET Ftdi1::Ftdi1)
     message(STATUS "Using Ftdi1 library")
     set(HAVE_LIBFTDI1 ON)
     target_compile_definitions(mpsse
-        PRIVATE
+        PUBLIC
             HAVE_LIBFTDI1=1
     )
 endif()
 target_link_libraries(mpsse PUBLIC Ftdi1::Ftdi1)
 
 target_sources(mpsse
-    PUBLIC
-        mpsse.h
-        support.h
     PRIVATE
         fast.c
         support.c
         mpsse.c
+        mpsse.h
+        support.h
 )
 
 set(PACKAGE_VERSION "${PROJECT_VERSION}")
